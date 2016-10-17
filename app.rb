@@ -1,5 +1,8 @@
 #app.rb
 require 'sinatra/base'
+require 'sinatra/activerecord'
+
+require_relative 'models/designer'
 
 class PatternLibApp < Sinatra::Base
 

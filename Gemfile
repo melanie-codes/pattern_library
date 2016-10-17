@@ -11,7 +11,7 @@ gem 'rake'
 
 # testing
 group :development, :test do
-  gem 'cucumber-sinatra'
+  gem 'cucumber'
 end
 
 group :test do
