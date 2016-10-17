@@ -12,8 +12,5 @@ gem 'rake'
 # testing
 group :development, :test do
   gem 'cucumber'
-end
-
-group :test do
   gem 'database_cleaner'
 end
