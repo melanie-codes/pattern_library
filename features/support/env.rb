@@ -7,7 +7,6 @@ require File.join(File.dirname(__FILE__), '..', '..', './app.rb')
 require 'capybara'
 require 'capybara/cucumber'
 require 'rspec'
-require 'factory_girl'
 
 Capybara.app = PatternLibApp
 

@@ -12,5 +12,4 @@ gem 'rake'
 # testing
 group :development, :test do
   gem 'cucumber-sinatra'
-  gem 'factory_girl'
 end
