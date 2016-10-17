@@ -1,0 +1,13 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: pattlib_development
+  pool: 2
+
+test: &test
+  adapter: postgresql
+  database: pattlib_test
+  encoding: unicode
+
+cucumber:
+  <<: *test
