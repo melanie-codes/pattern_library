@@ -13,3 +13,7 @@ gem 'rake'
 group :development, :test do
   gem 'cucumber-sinatra'
 end
+
+group :test do
+  gem 'database_cleaner'
+end
