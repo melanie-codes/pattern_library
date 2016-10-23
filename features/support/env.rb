@@ -7,11 +7,12 @@ require 'capybara/cucumber'
 require 'rspec'
 require 'rack'
 require 'rack/test'
+require 'sinatra/json'
 
 Capybara.app = PatternLibApp
 
 def app
-  Sinatra::Application
+  PatternLibApp
 end
 
 class PatternLibAppWorld

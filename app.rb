@@ -1,8 +1,10 @@
 #app.rb
 require 'sinatra/base'
 require 'sinatra/activerecord'
+require 'sinatra/json'
 
 require_relative 'models/designer'
+
 
 class PatternLibApp < Sinatra::Base
 
@@ -13,7 +15,7 @@ class PatternLibApp < Sinatra::Base
 
   # designers
   get '/designers' do
-    @designers = Designer.all
+    json Designer.all
   end
 
 end

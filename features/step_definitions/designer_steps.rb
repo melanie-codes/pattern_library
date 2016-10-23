@@ -8,3 +8,7 @@ end
 When(/^the client requests a list of "(.*?)"$/) do |path|
   get path
 end
+
+Then(/^the response is a list containing two designers$/) do
+  puts last_response.body
+end

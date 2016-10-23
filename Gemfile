@@ -11,6 +11,7 @@ gem 'sinatra-activerecord'
 # other
 gem 'rake'
 gem 'activesupport'
+gem 'sinatra-json'
 
 # testing
 group :development, :test do

@@ -5,5 +5,5 @@ Feature: Designers
       | name          | brand     |
       | Stephen West  | Westknits |
       | Andrea Mowry  | DreaRenee |
-    When the client requests a list of "designers"
+    When the client requests a list of "/designers"
     Then the response is a list containing two designers
