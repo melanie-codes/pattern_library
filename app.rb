@@ -4,6 +4,7 @@ require 'sinatra/activerecord'
 require 'sinatra/json'
 
 require_relative 'models/designer'
+require_relative 'models/season'
 
 require_relative 'serializers/designer_serializer'
 require_relative 'serializers/designer_collection_serializer'
