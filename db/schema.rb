@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161016143203) do
+ActiveRecord::Schema.define(version: 20161024203320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,25 @@ ActiveRecord::Schema.define(version: 20161016143203) do
   create_table "designers", force: :cascade do |t|
     t.string   "name"
     t.string   "brand"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "patterns", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.text     "body"
+    t.integer  "designer_id"
+    t.integer  "season_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "patterns", ["designer_id"], name: "index_patterns_on_designer_id", using: :btree
+  add_index "patterns", ["season_id"], name: "index_patterns_on_season_id", using: :btree
+
+  create_table "seasons", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
