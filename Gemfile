@@ -20,6 +20,8 @@ gem 'oat'
 group :development, :test do
   gem 'pry'
   gem 'cucumber'
+  gem 'rspec'
+  gem 'capybara'
   gem 'database_cleaner'
   gem 'rack-test'
 end
