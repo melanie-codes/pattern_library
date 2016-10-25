@@ -6,5 +6,6 @@ Given(/^the system knows about the following seasons:$/) do |table|
 end
 
 Then(/^the response is a list containing two seasons$/) do
-  pending # express the regexp above with the code you wish you had
+  result = JSON.parse(last_response.body)
+  expect(result["season_collection_count"]).to eq(2)
 end
