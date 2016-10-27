@@ -64,5 +64,26 @@ class PatternLibApp < Sinatra::Base
     json SeasonSerializer.new(season)
   end
 
+  post '/api/season' do
+    season = Season.create(name: params[:season][:name])
+    if season.save
+      json SeasonSerializer.new(season)
+    end
+  end
+
+  patch '/api/season/:id' do
+    season = Season.find params[:id]
+    if season.update_attributes(name: params[:season][:name])
+      json SeasonSerializer.new(season)
+    end
+  end
+
+  delete '/api/season/:id' do
+    season = Season.find params[:id]
+    if season.destroy
+      {:notice => "season deleted"}.to_json
+    end
+  end
+
 
 end
