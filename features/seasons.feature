@@ -30,4 +30,14 @@ Feature: Seasons
     And I destroy the season
     Then the response should be "season deleted"
 
-    
+  Scenario: Get patterns sorted by season
+    Given the system knows about the following season:
+      | name            |
+      | Spring/Summer   |
+    And the season knows the following patterns:
+      | name                 | description                                         |
+      | Candle Flame Lapghan | Made using Quince & Co. Osprey, 100% American wool  |
+      | Forest Wreath        | It uses two different colors of the Maiden Hair yarn|
+      | Bay Leaf             | Uses color 1037 Lettuce for the light color         |
+    When I call for the seasons patterns
+    Then the response should contain the three patterns

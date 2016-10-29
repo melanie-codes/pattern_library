@@ -5,11 +5,14 @@ require 'sinatra/json'
 
 require_relative 'models/designer'
 require_relative 'models/season'
+require_relative 'models/pattern'
 
 require_relative 'serializers/designer_serializer'
 require_relative 'serializers/designer_collection_serializer'
 require_relative 'serializers/season_serializer'
 require_relative 'serializers/season_collection_serializer'
+require_relative 'serializers/pattern_serializer'
+require_relative 'serializers/pattern_collection_serializer'
 
 
 class PatternLibApp < Sinatra::Base
@@ -85,5 +88,16 @@ class PatternLibApp < Sinatra::Base
     end
   end
 
+  get '/api/designer/:designer_id/patterns' do
+    designer = Designer.find params[:designer_id]
+    patterns = designer.patterns
+    json PatternCollectionSerializer.new(patterns)
+  end
+
+  get '/api/season/:season_id/patterns' do
+    season = Season.find params[:season_id]
+    patterns = season.patterns
+    json PatternCollectionSerializer.new(patterns)
+  end
 
 end
