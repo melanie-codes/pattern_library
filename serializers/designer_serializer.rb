@@ -1,11 +1,12 @@
 require 'oat'
 require 'oat/adapters/hal'
 
+# serializer for a single design
 class DesignerSerializer < Oat::Serializer
   adapter Oat::Adapters::HAL
 
   schema do
-    type "designer"
+    type 'designer'
 
     properties do |props|
       props.name item.name
@@ -13,5 +14,4 @@ class DesignerSerializer < Oat::Serializer
     end
     link :self, href: "/api/designer/#{item.id}"
   end
-
 end

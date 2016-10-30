@@ -13,7 +13,7 @@ end
 
 Then(/^the response should contain the three patterns$/) do
   result = JSON.parse(last_response.body)
-  expect(result["pattern_collection_count"]).to eq(3)
+  expect(result['pattern_collection_count']).to eq(3)
 end
 
 Given(/^the season knows the following patterns:$/) do |table|
@@ -37,19 +37,18 @@ end
 
 Then(/^the response is a list containing three patterns$/) do
   result = JSON.parse(last_response.body)
-  expect(result["pattern_collection_count"]).to eq(3)
+  expect(result['pattern_collection_count']).to eq(3)
 end
-
 
 When(/^I send the api the following pattern:$/) do |table|
   table.hashes.each do |n|
-    post "/api/pattern", {pattern: {name: n[:name], description: n[:description]}}
+    post '/api/pattern', pattern: { name: n[:name], description: n[:description] }
   end
 end
 
 Given(/^I update the patterns's name with "(.*?)"$/) do |name|
   pattern = Pattern.first
-  put "/api/pattern/#{pattern.id}", {pattern: {name: name}}
+  put "/api/pattern/#{pattern.id}", pattern: { name: name }
 end
 
 Given(/^I destroy the pattern$/) do

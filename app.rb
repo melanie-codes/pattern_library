@@ -1,4 +1,4 @@
-#app.rb
+# app.rb
 require 'sinatra/base'
 require 'sinatra/activerecord'
 require 'sinatra/json'
@@ -14,12 +14,11 @@ require_relative 'serializers/season_collection_serializer'
 require_relative 'serializers/pattern_serializer'
 require_relative 'serializers/pattern_collection_serializer'
 
-
+# main app
 class PatternLibApp < Sinatra::Base
-
   # to verify all is working ;-)
   get '/' do
-    'Gorby Puff says: "Miaow miaow!"'
+    'Gorby Puff says: "Miaow miaow! This app is working"'
   end
 
   ## API
@@ -53,7 +52,7 @@ class PatternLibApp < Sinatra::Base
   delete '/api/designer/:id' do
     designer = Designer.find params[:id]
     if designer.destroy
-      {:notice => "designer deleted"}.to_json
+      { notice: 'designer deleted' }.to_json
     end
   end
 
@@ -84,7 +83,7 @@ class PatternLibApp < Sinatra::Base
   delete '/api/season/:id' do
     season = Season.find params[:id]
     if season.destroy
-      {:notice => "season deleted"}.to_json
+      { notice: 'season deleted' }.to_json
     end
   end
 
@@ -127,8 +126,7 @@ class PatternLibApp < Sinatra::Base
   delete '/api/pattern/:id' do
     pattern = Pattern.find params[:id]
     if pattern.destroy
-      {:notice => "pattern deleted"}.to_json
+      { notice: 'pattern deleted' }.to_json
     end
   end
-
 end

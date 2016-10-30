@@ -1,11 +1,12 @@
 require 'oat'
 require 'oat/adapters/hal'
 
+# serializer for a single pattern
 class PatternSerializer < Oat::Serializer
   adapter Oat::Adapters::HAL
 
   schema do
-    type "pattern"
+    type 'pattern'
 
     properties do |props|
       props.name item.name
@@ -14,5 +15,4 @@ class PatternSerializer < Oat::Serializer
     end
     link :self, href: "/api/pattern/#{item.id}"
   end
-
 end

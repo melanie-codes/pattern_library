@@ -4,5 +4,5 @@ end
 
 Then(/^the response should contain "(.*?)"$/) do |name|
   result = JSON.parse(last_response.body)
-  expect(result["name"]).to eq(name)
+  expect(result['name']).to eq(name)
 end

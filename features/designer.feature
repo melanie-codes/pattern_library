@@ -41,3 +41,4 @@ Feature: Designers
       | Bay Leaf             | Uses color 1037 Lettuce for the light color         |
     When I call for the designer's patterns
     Then the response should contain the three patterns
+    

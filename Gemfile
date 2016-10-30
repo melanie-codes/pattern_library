@@ -1,7 +1,7 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
 # main
-gem 'sinatra', :require => 'sinatra/base'
+gem 'sinatra', require: 'sinatra/base'
 
 # db
 gem 'pg'
@@ -15,6 +15,9 @@ gem 'sinatra-json'
 
 # hal
 gem 'oat'
+
+# rubocop
+gem 'rubocop', require: false
 
 # testing
 group :development, :test do
