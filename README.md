@@ -16,6 +16,11 @@ First install  necessary gems:
 bundle install
 ```
 
+Populate the DB:
+```
+rake db:seed
+```
+
 To get started, run:
 
 ```

@@ -19,6 +19,9 @@ gem 'oat'
 # rubocop
 gem 'rubocop', require: false
 
+# hyperresource
+gem 'hyperresource'
+
 # testing
 group :development, :test do
   gem 'pry'
