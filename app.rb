@@ -43,7 +43,7 @@ class PatternLibApp < Sinatra::Base
     end
   end
 
-  patch '/api/designer/:id' do
+  put '/api/designer/:id' do
     designer = Designer.find params[:id]
     if designer.update_attributes(name: params[:designer][:name], brand: params[:designer][:brand])
       json DesignerSerializer.new(designer)
@@ -74,7 +74,7 @@ class PatternLibApp < Sinatra::Base
     end
   end
 
-  patch '/api/season/:id' do
+  put '/api/season/:id' do
     season = Season.find params[:id]
     if season.update_attributes(name: params[:season][:name])
       json SeasonSerializer.new(season)
@@ -98,6 +98,37 @@ class PatternLibApp < Sinatra::Base
     season = Season.find params[:season_id]
     patterns = season.patterns
     json PatternCollectionSerializer.new(patterns)
+  end
+
+  get '/api/patterns' do
+    patterns = Pattern.all
+    json PatternCollectionSerializer.new(patterns)
+  end
+
+  get '/api/pattern/:id' do
+    pattern = Pattern.find params[:id]
+    json PatternSerializer.new(pattern)
+  end
+
+  post '/api/pattern' do
+    pattern = Pattern.create(name: params[:pattern][:name], description: params[:pattern][:description], body: params[:pattern][:body], designer: params[:pattern][:designer], season: params[:pattern][:season])
+    if pattern.save
+      json PatternSerializer.new(pattern)
+    end
+  end
+
+  put '/api/pattern/:id' do
+    pattern = Pattern.find params[:id]
+    if pattern.update_attributes(name: params[:pattern][:name], description: params[:pattern][:description], body: params[:pattern][:body], designer: params[:pattern][:designer], season: params[:pattern][:season])
+      json PatternSerializer.new(pattern)
+    end
+  end
+
+  delete '/api/pattern/:id' do
+    pattern = Pattern.find params[:id]
+    if pattern.destroy
+      {:notice => "pattern deleted"}.to_json
+    end
   end
 
 end

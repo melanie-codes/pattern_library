@@ -26,10 +26,15 @@ end
 
 Given(/^I update the season's name with "(.*?)"$/) do |name|
   season = Season.first
-  patch "/api/season/#{season.id}", {season: {name: name}}
+  put "/api/season/#{season.id}", {season: {name: name}}
 end
 
 Given(/^I destroy the season$/) do
   season = Season.first
   delete "/api/season/#{season.id}"
+end
+
+Then(/^the client requests the first season$/) do
+  season = Season.first
+  get "/api/season/#{season.id}"
 end

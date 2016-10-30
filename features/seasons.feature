@@ -7,7 +7,7 @@ Feature: Seasons
       | Fall/Winter      |
     When the client requests a list of "/api/seasons"
     Then the response is a list containing two seasons
-    And the client requests the first designer through "/api/season/1"
+    And the client requests the first season
     Then the response should contain "Spring/Summer"
 
   Scenario: Create a season

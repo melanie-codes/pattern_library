@@ -7,7 +7,7 @@ Feature: Designers
       | Andrea Mowry  | DreaRenee |
     When the client requests a list of "/api/designers"
     Then the response is a list containing two designers
-    And the client requests the first designer through "/api/designer/1"
+    And the client requests the first designer
     Then the response should contain "Stephen West"
 
   Scenario: Create a designer
