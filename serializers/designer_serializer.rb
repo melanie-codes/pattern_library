@@ -13,5 +13,6 @@ class DesignerSerializer < Oat::Serializer
       props.brand item.brand
     end
     link :self, href: "/api/designer/#{item.id}"
+    link :patterns, href: "/api/designer/#{item.id}/patterns"
   end
 end

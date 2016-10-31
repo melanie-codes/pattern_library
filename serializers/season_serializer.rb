@@ -12,5 +12,6 @@ class SeasonSerializer < Oat::Serializer
       props.name item.name
     end
     link :self, href: "/api/season/#{item.id}"
+    link :patterns, href: "/api/season/#{item.id}/patterns"
   end
 end
